@@ -4,11 +4,17 @@ Sistema de punto de venta para un negocio de comida rápida (hamburguesas, hot d
 
 ![CI](https://github.com/JRLR22/pos-hamburguesas/actions/workflows/ci.yml/badge.svg)
 
-<!-- Agrega capturas en docs/capturas/ y descomenta:
-| Caja | Cocina | Reportes |
-|------|--------|----------|
-| ![Caja](docs/capturas/caja.png) | ![Cocina](docs/capturas/cocina.png) | ![Reportes](docs/capturas/reportes.png) |
--->
+![Caja: catálogo por categorías y pedido actual](docs/capturas/caja.png)
+
+| Cocina (modo oscuro) | Reporte del día |
+|---|---|
+| ![Pantalla de comandas de cocina](docs/capturas/cocina.png) | ![Reporte de ventas por cajero](docs/capturas/reportes.png) |
+
+| Extras por producto | En celular |
+|---|---|
+| ![Selección de extras](docs/capturas/extras.png) | <img src="docs/capturas/caja-movil.png" alt="Caja en celular" width="260"> |
+
+<sub>Capturas con datos de demostración.</sub>
 
 ## Funcionalidades
 

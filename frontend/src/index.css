@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Paleta: piedra clara neutra + óxido (referencia a la parrilla), no el terracota/crema genérico */
+  --color-surface: #ffffff;
+  --color-surface-alt: #f2efe9;
+  --color-border: #ded7c9;
+  --color-ink: #201c16;
+  --color-ink-muted: #6b6255;
+  --color-rust: #a8471e;
+  --color-rust-dark: #832f10;
+  --color-olive: #4b5d3a;
+  --color-brick: #8c2f2f;
+
+  /* Fuentes del sistema: sin peticiones de red externas, carga instantánea */
+  --font-sans: ui-sans-serif, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace;
+}
+
+/* Modo oscuro: redefine los mismos tokens dentro de .dark en <html>.
+   Como las utilidades de Tailwind (bg-surface, text-ink, etc.) apuntan
+   a estas variables, ningún componente necesita cambiar. */
+.dark {
+  --color-surface: #1c1a16;
+  --color-surface-alt: #14120e;
+  --color-border: #3a352c;
+  --color-ink: #ede8df;
+  --color-ink-muted: #a39a8a;
+  --color-rust: #d9682f;
+  --color-rust-dark: #a8471e;
+  --color-olive: #6b8154;
+  --color-brick: #b34848;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  html {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+  }
+  body {
+    background-color: var(--color-surface-alt);
+  }
+  /* Foco visible siempre, para uso con teclado/lector de código de barras */
+  :focus-visible {
+    outline: 2px solid var(--color-rust);
+    outline-offset: 2px;
+  }
+}
+
+/* Cifras tabulares para que precios y totales alineen como en un ticket real */
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}

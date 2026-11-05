@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+*.log
+
+# Secretos
+.env
+**/.env
+!.env.example
+
+# Base de datos y respaldos (contienen datos reales del negocio)
+data/
+respaldos/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite

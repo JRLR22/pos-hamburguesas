@@ -3,7 +3,7 @@ import { api } from '../lib/api';
 import { useRecurso } from '../lib/useRecurso';
 import { formatoMoneda } from '../lib/dinero';
 import { hoyLocal, horaLocal } from '../lib/fechas';
-import { etiquetaOrigen } from '../lib/constantes';
+import { etiquetaOrigen, etiquetaPago } from '../lib/constantes';
 
 export default function Reportes() {
   const [fecha, setFecha] = useState(hoyLocal);
@@ -113,7 +113,7 @@ export default function Reportes() {
                       )}
                       {p.estado === 'cancelado' && <span className="text-xs text-brick font-normal">Cancelado</span>}
                     </p>
-                    <p className="text-xs text-ink-muted">{p.metodo_pago}</p>
+                    <p className="text-xs text-ink-muted">{etiquetaPago(p.metodo_pago)}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <span
@@ -167,7 +167,7 @@ function ModalCancelar({ pedido, onCerrar, onConfirmar }) {
       <div className="bg-surface rounded-md max-w-sm w-full p-5">
         <h3 className="font-semibold text-ink mb-1">Cancelar pedido #{pedido.id}</h3>
         <p className="text-sm text-ink-muted mb-4">
-          Total {formatoMoneda(pedido.total)} · {pedido.metodo_pago}. Esta acción no se puede deshacer.
+          Total {formatoMoneda(pedido.total)} · {etiquetaPago(pedido.metodo_pago)}. Esta acción no se puede deshacer.
         </p>
 
         <form onSubmit={alEnviar} className="space-y-3">

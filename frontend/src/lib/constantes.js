@@ -15,4 +15,6 @@ export const ORIGENES_PEDIDO = [
   { valor: 'rappi', etiqueta: 'Rappi' },
 ];
 
+export const etiquetaPago = (valor) => METODOS_PAGO.find((m) => m.valor === valor)?.etiqueta ?? valor;
+
 export const etiquetaOrigen = (valor) => ORIGENES_PEDIDO.find((o) => o.valor === valor)?.etiqueta ?? valor;

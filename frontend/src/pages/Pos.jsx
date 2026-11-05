@@ -63,8 +63,26 @@ export default function Pos() {
     setProductoParaExtras(producto);
   }
 
+  // Si ya hay una línea con el mismo producto y los mismos extras, solo suma la cantidad
   function agregarLinea(producto, extras, cantidad) {
-    setCarrito((actual) => [...actual, { id: nuevoIdLinea(), producto, cantidad, extras }]);
+    const clave = extras
+      .map((e) => e.id)
+      .sort()
+      .join(',');
+    setCarrito((actual) => {
+      const existente = actual.find(
+        (it) =>
+          it.producto.id === producto.id &&
+          it.extras
+            .map((e) => e.id)
+            .sort()
+            .join(',') === clave
+      );
+      if (existente) {
+        return actual.map((it) => (it === existente ? { ...it, cantidad: it.cantidad + cantidad } : it));
+      }
+      return [...actual, { id: nuevoIdLinea(), producto, cantidad, extras }];
+    });
   }
 
   function cambiarCantidad(lineaId, delta) {

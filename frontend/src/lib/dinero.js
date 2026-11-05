@@ -17,6 +17,9 @@ export function centavosAPesos(centavos) {
 }
 
 /** Centavos -> texto con formato de moneda para mostrar en pantalla */
+const FORMATO_MXN = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' });
+
+/** Centavos -> "$1,234.50" */
 export function formatoMoneda(centavos) {
-  return `$${centavosAPesos(centavos).toFixed(2)}`;
+  return FORMATO_MXN.format(centavosAPesos(centavos));
 }
